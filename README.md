@@ -1,2 +1,3 @@
-# siliyoung-frontend
-Frontend service for siliyoung
+# Welcome to your Lovable project
+
+TODO: Document your project here
