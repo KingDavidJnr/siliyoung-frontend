@@ -26,6 +26,7 @@ interface InventoryItem {
 interface StockReport {
   itemId: string;
   itemName: string;
+  openingStock: number;
   totalAdded: number;
   totalSold: number;
   totalReduced: number;
@@ -585,6 +586,7 @@ function ReportsView({
       <div className="bg-card rounded-xl border border-border p-4">
         <h4 className="text-sm font-semibold text-foreground mb-2">Understanding the Report</h4>
         <ul className="text-xs text-muted-foreground space-y-1">
+          <li><strong className="text-foreground">Opening:</strong> Stock on hand at the start of the selected period.</li>
           <li><strong className="text-foreground">Added:</strong> New stock purchased and added to inventory.</li>
           <li><strong className="text-foreground">Sold:</strong> Quantity sold through recorded sales.</li>
           <li><strong className="text-foreground">Reduced:</strong> Goods returned on the same day they were sold.</li>
@@ -610,6 +612,7 @@ function ReportsView({
             <thead>
               <tr className="border-b border-border text-left">
                 <th className="px-4 py-3 font-medium text-muted-foreground">Item</th>
+                <th className="px-4 py-3 font-medium text-muted-foreground">Opening</th>
                 <th className="px-4 py-3 font-medium text-muted-foreground">Added</th>
                 <th className="px-4 py-3 font-medium text-muted-foreground">Sold</th>
                 <th className="px-4 py-3 font-medium text-muted-foreground hidden sm:table-cell">Reduced</th>
@@ -626,6 +629,7 @@ function ReportsView({
                   className="border-b border-border last:border-0 hover:bg-muted/50 transition-colors"
                 >
                   <td className="px-4 py-3 font-medium text-foreground">{r.itemName}</td>
+                  <td className="px-4 py-3 text-muted-foreground">{r.openingStock}</td>
                   <td className="px-4 py-3 text-primary">{r.totalAdded}</td>
                   <td className="px-4 py-3 text-foreground">{r.totalSold}</td>
                   <td className="px-4 py-3 text-muted-foreground hidden sm:table-cell">{r.totalReduced}</td>
